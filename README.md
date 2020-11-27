@@ -1,14 +1,18 @@
-# Unity Project Style Guide
-A style guide for keeping your Unity projects tidy and organized. Compiled from several best practices resources (see the resources section at the end of the document).
+# Unity Multiplayer Course
 
-## Unity Project Template
-This style guide now includes a Unity project template with minimal setup according to this guide and the new .NET4.0 scripting runtime version and Api compatibility activated.
+Project for Unity Multiplayer course.
 
-## Files, Folders and Project Structure
+## Dependencies
 
-### Naming 
+- Mirror 26.2.2
 
-#### General Principles
+## Style Guide
+
+### Files, Folders and Project Structure
+
+#### Naming
+
+##### General Principles
 
 - *Never use Spaces* in names.
 - Use **PascalCase** for *custom file- and folder names*, like this: *ComplicatedVerySpecificObject*. Do not use spaces, underscores, or hyphens, with one exception (see Naming Different Aspects of the Same Thing).
@@ -17,9 +21,10 @@ This style guide now includes a Unity project template with minimal setup accord
 - Do *not use numbers* for things that *don’t form a sequence*. For example, Bird0, Bird1,Bird2 should be Flamingo, Eagle, Swallow.
 - Prefix temporary objects with a double underscore __Player_Backup.
 
-#### Naming Different Aspects of the Same Thing
+##### Naming Different Aspects of the Same Thing
 
 Use *underscores* between the *core name*, and the thing that describes the *“aspect”*. For instance:
+
 - GUI buttons states *EnterButton_Active*, *EnterButton_Inactive*
 - Textures *DarkVampire_Diffuse*, *DarkVampire_Normalmap*
 - Skybox *JungleSky_Top*, *JungleSky_North*
@@ -27,21 +32,20 @@ Use *underscores* between the *core name*, and the thing that describes the *“
 
 Do *not use* this convention just to *distinguish* between *different types* of items, for instance Rock_Small, Rock_Large should be SmallRock, LargeRock.
 
+#### Structure
 
-### Structure
-
-#### General Principles
+##### General Principles
 
 - **Prefab everything**.
-    - To modify an asset from the store, drag it into the hierarchy and create a prefab inside _Project.
+  - To modify an asset from the store, drag it into the hierarchy and create a prefab inside _Project.
 - **Use the Project tab's *search* functionality**:
   - *Search by Type* in the *upper right*.
   - *Restrict results to selected folder only* (recursively): Click on *Search* and selecting the desired folder from the drop-down (operation mode will be remembered). 
 - **Save searches as *context sensitive filters*** (two colum layout): 
   - Click on the *star* in the top right to save a search. The *filter will apply to any selected folder*, for example: 
-     - *Only scripts in selected* (and sub-folders)
-     - *Only prefabs in selected* (and sub-folders)
-     - *Only animations in selected* (and sub-folders)
+    - *Only scripts in selected* (and sub-folders)
+    - *Only prefabs in selected* (and sub-folders)
+    - *Only animations in selected* (and sub-folders)
 - *Pin* folders by dragging them to *Favorites*.
 - *Don’t* disassemble *context-specific assets*. For instance, leave the folder structure of downloaded assets intact.
 - **Use Tags to mark imported 3rdParty assets:**
@@ -49,14 +53,14 @@ Do *not use* this convention just to *distinguish* between *different types* of 
     - For entire packs, mark the top folder of the asset pack.
     - Assets that come as individual files can be marked directly.
 
-#### Project directory structure (strictly functionality/entity-based):
+##### Project directory structure (strictly functionality/entity-based):
 
 ```
 Assets
     __NoVersionControl      // Container for temporary stuff, not under version control. More clear???
-    _Project                // All custom files.               
+    _Project                // All custom files.
         Characters
-            Enemy           // Can have sub-folders or not (see "Save searches as context sensitive filters).       
+            Enemy           // Can have sub-folders or not (see "Save searches as context sensitive filters).
             Player
             ...
         Environment
@@ -74,14 +78,15 @@ Assets
     Standard Assets         // Reserved folder for Unity standard assets.
 ```
 
-#### Scene hierarchy structure
+##### Scene hierarchy structure
 
 Prefab everything!
 
 ```
+
 Main
 Debug
-Managers 
+Managers
 Cameras
 Lights
 UI
@@ -101,25 +106,26 @@ Gameplay
 _DynamicObjects     // Parent for all objects instantiated at runtime.
 ```
 
+### Coding Standard (C#)
 
-## Coding Standard (C#)
+- Use camelCase for fields and variables.
 
-- Use camelCase for fields and variables. 
+  Example:
 
-  Example: 
   ```CSharp
   private RigidBody rigidBody;
 
-  private int length; 
+  private int length;
   ```
 
 ---
 
-References: 
-- https://www.gamasutra.com/blogs/HermanTulleken/20160812/279100/50_Tips_and_Best_Practices_for_Unity_2016_Edition.php
+References:
 
-- http://developers.nravo.com/mastering-unity-project-folder-structure-level-2-assets-organization/
+- <https://www.gamasutra.com/blogs/HermanTulleken/20160812/279100/50_Tips_and_Best_Practices_for_Unity_2016_Edition.php>
 
-- https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines
+- <http://developers.nravo.com/mastering-unity-project-folder-structure-level-2-assets-organization/>
 
-- https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/
+- <https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines>
+
+- <https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/>
