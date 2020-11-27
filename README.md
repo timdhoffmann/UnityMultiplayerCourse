@@ -55,9 +55,8 @@ Do *not use* this convention just to *distinguish* between *different types* of 
 
 ##### Project directory structure (strictly functionality/entity-based):
 
-```
+```CSharp
 Assets
-    __NoVersionControl      // Container for temporary stuff, not under version control. More clear???
     _Project                // All custom files.
         Characters
             Enemy           // Can have sub-folders or not (see "Save searches as context sensitive filters).
@@ -82,8 +81,7 @@ Assets
 
 Prefab everything!
 
-```
-
+```CSharp
 Main
 Debug
 Managers

@@ -73,6 +73,8 @@ crashlytics-build.properties
 # ====== #
 # Custom #
 # ======= #
+Assets/Enhanced Hierarchy*
+Assets/TextMesh Pro*
 Assets/Plugins*
 
 Assets/ProBuilder Data/
