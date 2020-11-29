@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 
 namespace _Project.Player
 {
@@ -47,9 +48,9 @@ namespace _Project.Player
         private void Update()
         {
             if (!hasAuthority) { return; }
-            if (!Input.GetMouseButtonDown(1)) { return; }
+            if (!Mouse.current.rightButton.wasPressedThisFrame) { return; }
 
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.Raycast(
                 ray: ray,
                 hitInfo: out RaycastHit hitInfo,
