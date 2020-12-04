@@ -33,7 +33,7 @@ public class UnitSpawner : NetworkBehaviour
     private void Update()
     {
         if (!hasAuthority) { return; }
-        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        if (Mouse.current.leftButton.wasReleasedThisFrame && Keyboard.current.ctrlKey.isPressed)
         {
             CmdSpawnUnit();
         }
