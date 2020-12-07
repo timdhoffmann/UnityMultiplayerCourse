@@ -19,8 +19,10 @@ public class LimbusNetworkManager : NetworkManager
         NetworkServer.Spawn(unitSpawner, conn);
     }
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         Assert.IsNotNull(_unitSpawnerPrefab);
     }
 }

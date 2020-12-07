@@ -9,12 +9,13 @@ namespace _Project.Units
 {
     public class SelectionHandler : MonoBehaviour
     {
+        public List<Unit> SelectedUnits { get; } = new List<Unit>();
+
         [SerializeField]
         // TODO: What is this initialized to?
         private LayerMask _layerMask = new LayerMask();
 
         private Camera _mainCamera = null;
-        private List<Unit> _selectedUnits = new List<Unit>();
 
         // Start is called before the first frame update
         private void Start()
@@ -38,11 +39,11 @@ namespace _Project.Units
 
         private void StartAreaSelection()
         {
-            foreach (var selectedUnit in _selectedUnits)
+            foreach (var selectedUnit in SelectedUnits)
             {
                 selectedUnit.DeSelect();
             }
-            _selectedUnits.Clear();
+            SelectedUnits.Clear();
         }
 
         private void CompleteAreaSelection()
@@ -53,9 +54,9 @@ namespace _Project.Units
             if (!hit.collider.TryGetComponent<Unit>(out Unit unit)) { return; }
             if (!unit.hasAuthority) { return; }
 
-            _selectedUnits.Add(unit);
+            SelectedUnits.Add(unit);
 
-            foreach (var selectedUnit in _selectedUnits)
+            foreach (var selectedUnit in SelectedUnits)
             {
                 selectedUnit.Select();
             }
