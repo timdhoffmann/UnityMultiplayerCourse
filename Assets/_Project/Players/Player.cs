@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace _Project.Player
+namespace _Project.Players
 {
     public class Player : NetworkBehaviour
     {
